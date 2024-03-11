@@ -1,8 +1,13 @@
 import React from "react";
-function Inputbox(){
+function Inputbox({
+label,amount,onAmountChange,onCurrencyChange,currencyOptions=[],
+selectCurrency="usd",amountDisable=false,currencyDisable=false
+
+
+}){
      return (
-        <div className="">
-            <div className="">
+        <div className="big-box">
+            <div className="lebel-box">
                 <label htmlFor={amountInputId}  className="">
                     {label}
                 </label>
@@ -16,17 +21,22 @@ function Inputbox(){
                     onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
                 />
             </div>
-            <div className="">
-                <p className="">Currency Type</p>
+            <div className="type-box">
+                <p className="currency-box">Currency Type</p>
                 <select
-                    className=""
+                    className="select-box"
                     value={selectCurrency}
                     onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                     disabled={currencyDisable}
                 > 
+                {currencyOptions.map((c)=>(
+                    <option key={c} value={c}>
+                        {c}
+                    </option>
+                ))}
                 </select>
             </div>
         </div>
     );
 }
-export default Inputbox
+export default Inputbox;
