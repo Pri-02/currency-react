@@ -1,18 +1,18 @@
-import React from "react";
+import React ,{useId}from "react";
 function Inputbox({
 label,amount,onAmountChange,onCurrencyChange,currencyOptions=[],
-selectCurrency="usd",amountDisable=false,currencyDisable=false
-
+selectCurrency="usd",amountDisable=false,currencyDisable=false,
 
 }){
+    const amountinputID= useId()
      return (
         <div className="big-box">
             <div className="lebel-box">
-                <label htmlFor={amountInputId}  className="">
+                <label htmlFor={amountinputID}  className="">
                     {label}
                 </label>
                 <input
-                    id={amountInputId}
+                     id={amountinputID}
                     className=""
                     type="number"
                     placeholder="Amount"
